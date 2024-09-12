@@ -15,6 +15,7 @@ import {CustomSearch, ProductItem} from '../components';
 import {CategoriesData, ProductData} from '../constants/data';
 import {removeItem} from '../utils/AsyncStorage';
 import {ProductTypes} from '../constants/types';
+import tw from 'tailwind-react-native-classnames'; 
 
 type Props = {};
 
@@ -50,18 +51,18 @@ const HomeTab = (props: Props) => {
   return (
     <ScrollView>
       {/* header */}
-      <View className="flex flex-row items-center justify-between mx-5">
-        <Image source={icons.menu} className="w-8 h-8" resizeMode="contain" />
+      <View style={tw`flex flex-row items-center justify-between mx-5`}>
+        <Image source={icons.menu} style={tw`w-8 h-8`} resizeMode="contain" />
 
         <Image
           source={images.logo}
-          className="w-24 h-24"
+          style={tw`w-24 h-24`}
           resizeMode="contain"
         />
         <TouchableOpacity onPress={NavigateToProfile}>
           <Image
             source={icons.profile}
-            className="w-8 h-8"
+            style={tw`w-8 h-8`}
             resizeMode="contain"
           />
         </TouchableOpacity>
@@ -69,17 +70,17 @@ const HomeTab = (props: Props) => {
       {/* search */}
       <CustomSearch initialQuery="" />
       {/* features */}
-      <View className="flex my-5 flex-row mx-5 justify-between ">
-        <Text className="text-2xl font-bold ">All Features </Text>
-        <View className="flex flex-row gap-x-3 ">
+      <View style={tw`flex my-5 flex-row mx-5 justify-between`}>
+        <Text style={tw`text-2xl font-bold`}>All Features </Text>
+        <View style={tw`flex flex-row gap-x-3`}>
           {FeaturesData.map(item => (
             <View
-              className="bg-white  rounded-lg  flex-row flex items-center px-2 "
+              style={tw`bg-white rounded-lg flex-row flex items-center px-2`}
               key={item.id}>
-              <Text className="text-black-100"> {item.title} </Text>
+              <Text style={tw`text-black-100`}> {item.title} </Text>
               <Image
                 source={item.image}
-                className="w-4 h-4"
+                style={tw`w-4 h-4`}
                 resizeMode="contain"
               />
             </View>
@@ -94,9 +95,9 @@ const HomeTab = (props: Props) => {
             <TouchableOpacity onPress={handleSelectCategory}>
               <Image
                 source={{uri: item.image}} // it's url
-                className="w-24 h-24 rounded-full"
+                style={tw`w-24 h-24 rounded-full`}
               />
-              <Text className="text-black-100/80 text-center text-lg font-medium">
+              <Text style={tw`text-black-100/80 text-center text-lg font-medium`}>
                 {' '}
                 {item.title}{' '}
               </Text>
@@ -104,9 +105,9 @@ const HomeTab = (props: Props) => {
           )}
           horizontal
           showsHorizontalScrollIndicator={false}
-          ItemSeparatorComponent={() => <View className="w-8" />}
-          ListFooterComponent={<View className="w-8" />}
-          ListHeaderComponent={<View className="w-8" />}
+          ItemSeparatorComponent={() => <View style={tw`w-8`} />}
+          ListFooterComponent={<View style={tw`w-8`} />}
+          ListHeaderComponent={<View style={tw`w-8`} />}
         />
       </View>
       {/* offer */}
@@ -114,38 +115,38 @@ const HomeTab = (props: Props) => {
         <Image
           source={images.deal_off}
           resizeMode="contain"
-          className="w-full mt-8 "
+          style={tw`w-full mt-8`}
         />
       </View>
       {/* daily .. */}
-      <View className="bg-[#4392F9] rounded-xl justify-between flex flex-row mx-5 pl-5 py-5">
+      <View style={tw`bg-[#4392F9] rounded-xl justify-between flex flex-row mx-5 pl-5 py-5`}>
         <View>
-          <Text className="text-white  text-2xl font-semibold">
+          <Text style={tw`text-white text-2xl font-semibold`}>
             Daily of the Day
           </Text>
-          <View className="flex flex-row mt-3 items-center gap-x-1">
+          <View style={tw`flex flex-row mt-3 items-center gap-x-1`}>
             <Image
               source={icons.calender}
               resizeMode="contain"
-              className="w-6 h-6"
+              style={tw`w-6 h-6`}
             />
-            <Text className="text-white text-base font-medium">
+            <Text style={tw`text-white text-base font-medium`}>
               {' '}
               22h 55m 20s remaining{' '}
             </Text>
           </View>
         </View>
-        <View className="rounded-lg border-white border-2 mr-3 h-12 px-3 flex flex-row gap-x-px items-center">
-          <Text className="text-white font-medium text-lg">View all</Text>
+        <View style={tw`rounded-lg border-white border-2 mr-3 h-12 px-3 flex flex-row gap-x-px items-center`}>
+          <Text style={tw`text-white font-medium text-lg`}>View all</Text>
           <Image
             source={icons.show_all}
             resizeMode="contain"
-            className="w-6 h-6"
+            style={tw`w-6 h-6`}
           />
         </View>
       </View>
       {/* Products */}
-      <View className="my-8">
+      <View style={tw`my-8`}>
         <FlatList
           data={products}
           renderItem={({item}) => (
@@ -163,64 +164,64 @@ const HomeTab = (props: Props) => {
           )}
           horizontal
           showsHorizontalScrollIndicator={false}
-          ItemSeparatorComponent={() => <View className="w-8" />}
-          ListFooterComponent={<View className="w-8" />}
-          ListHeaderComponent={<View className="w-8" />}
+          ItemSeparatorComponent={() => <View style={tw`w-8`} />}
+          ListFooterComponent={<View style={tw`w-8`} />}
+          ListHeaderComponent={<View style={tw`w-8`} />}
         />
       </View>
       {/* special Offer */}
-      <View className="flex my-5 justify-between bg-white flex-row items-center py-3 px-4 mx-5 rounded-lg">
+      <View style={tw`flex my-5 justify-between bg-white flex-row items-center py-3 px-4 mx-5 rounded-lg`}>
         <Image
           source={icons.offer}
-          className="w-24 h-24"
+          style={tw`w-24 h-24`}
           resizeMode="contain"
         />
-        <View className="">
-          <Text className="text-2xl mb-1 text-black-100 font-bold">
+        <View>
+          <Text style={tw`text-2xl mb-1 text-black-100 font-bold`}>
             Special Offers
           </Text>
-          <Text className="text-neutral-500 text-base w-52">
+          <Text style={tw`text-neutral-500 text-base w-52`}>
             We make sure you get the offer you need at best prices
           </Text>
         </View>
       </View>
       {/* Flat Shoes Offer */}
-      <View className="my-5">
+      <View style={tw`my-5`}>
         <Image
           source={images.flat}
-          className="self-center "
+          style={tw`self-center`}
           resizeMode="contain"
         />
       </View>
       {/* Trending Products */}
-      <View className="bg-red-500 rounded-xl justify-between flex flex-row mx-5 pl-5 py-5">
+      <View style={tw`bg-red-500 rounded-xl justify-between flex flex-row mx-5 pl-5 py-5`}>
         <View>
-          <Text className="text-white  text-2xl font-semibold">
+          <Text style={tw`text-white text-2xl font-semibold`}>
             Daily of the Day
           </Text>
-          <View className="flex flex-row mt-3 items-center gap-x-1">
+          <View style={tw`flex flex-row mt-3 items-center gap-x-1`}>
             <Image
               source={icons.calender}
               resizeMode="contain"
-              className="w-6 h-6"
+              style={tw`w-6 h-6`}
             />
-            <Text className="text-white text-base font-medium">
+            <Text style={tw`text-white text-base font-medium`}>
               {' '}
               22h 55m 20s remaining{' '}
             </Text>
           </View>
         </View>
-        <View className="rounded-lg border-white border-2 mr-3 h-12 px-3 flex flex-row gap-x-px items-center">
-          <Text className="text-white font-medium text-lg">View all</Text>
+        <View style={tw`rounded-lg border-white border-2 mr-3 h-12 px-3 flex flex-row gap-x-px items-center`}>
+          <Text style={tw`text-white font-medium text-lg`}>View all</Text>
           <Image
             source={icons.show_all}
             resizeMode="contain"
-            className="w-6 h-6"
+            style={tw`w-6 h-6`}
           />
         </View>
       </View>
       {/* Products */}
-      <View className="my-8">
+      <View style={tw`my-8`}>
         <FlatList
           data={products}
           renderItem={({item}) => (
@@ -238,9 +239,9 @@ const HomeTab = (props: Props) => {
           )}
           horizontal
           showsHorizontalScrollIndicator={false}
-          ItemSeparatorComponent={() => <View className="w-8" />}
-          ListFooterComponent={<View className="w-8" />}
-          ListHeaderComponent={<View className="w-8" />}
+          ItemSeparatorComponent={() => <View style={tw`w-8`} />}
+          ListFooterComponent={<View style={tw`w-8`} />}
+          ListHeaderComponent={<View style={tw`w-8`} />}
         />
       </View>
       {/* .... */}

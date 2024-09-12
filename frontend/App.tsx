@@ -18,9 +18,9 @@ import SplashScreen from 'react-native-splash-screen';
 const App = () => {
   const Stack = createNativeStackNavigator();
 
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+  // useEffect(() => {
+  //   SplashScreen.hide();
+  // }, []);
 
   return (
     <>

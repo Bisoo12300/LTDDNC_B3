@@ -12,6 +12,7 @@ import {CustomButton, CustomWrapper, DetailsItem} from '../components';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RouteStackParamList} from '../../App';
+import tw from 'tailwind-react-native-classnames'; 
 
 type Props = {};
 
@@ -27,19 +28,19 @@ const SettingTab = (props: Props) => {
   const handleEditPic = () => {};
   return (
     <CustomWrapper>
-      <View className="pt-2 px-3">
+      <View style={tw`pt-2 px-3`}>
         {/* image profile */}
-        <View className="flex justify-center items-center">
-          <Image source={icons.profile} className="w-40 h-40 rounded-full " />
+        <View style={tw`flex justify-center items-center`}>
+          <Image source={icons.profile} style={tw`w-40 h-40 rounded-full`} />
           <TouchableOpacity
             onPress={handleEditPic}
-            className=" p-2 border-white border rounded-full  bg-blue-500 absolute bottom-3 right-[31%] items-center justify-center">
-            <Image source={icons.pen} className=" w-6 h-6" />
+            style={tw`p-2 border-white border rounded-full bg-blue-500 absolute bottom-3 right-[31%] items-center justify-center`}>
+            <Image source={icons.pen} style={tw`w-6 h-6`} />
           </TouchableOpacity>
         </View>
         {/* Personal Details */}
         <View>
-          <Text className="text-2xl font-bold text-black-100">
+          <Text style={tw`text-2xl font-bold text-black-100`}>
             Personal Details
           </Text>
           <FlatList
@@ -50,10 +51,10 @@ const SettingTab = (props: Props) => {
             keyExtractor={item => item.id.toString()} // have to be in string format
           />
         </View>
-        <View className="h-px w-full my-5 bg-black-100/20" />
+        <View style={tw`h-px w-full my-5 bg-black-100/20`} />
         {/* Business info */}
-        <View className="mt-4">
-          <Text className="text-2xl font-bold text-black-100">
+        <View style={tw`mt-4`}>
+          <Text style={tw`text-2xl font-bold text-black-100`}>
             Business Address Details
           </Text>
           <FlatList
@@ -64,10 +65,10 @@ const SettingTab = (props: Props) => {
             keyExtractor={item => item.id.toString()} // have to be in string format
           />
         </View>
-        <View className="h-px w-full my-5 bg-black-100/20" />
+        <View style={tw`h-px w-full my-5 bg-black-100/20`} />
         {/* Bank Account Details */}
-        <View className="my-4">
-          <Text className="text-2xl font-bold text-black-100">
+        <View style={tw`my-4`}>
+          <Text style={tw`text-2xl font-bold text-black-100`}>
             Bank Account Details
           </Text>
           <FlatList

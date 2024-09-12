@@ -1,5 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
+import tw from 'tailwind-react-native-classnames'; 
 import React, {useState} from 'react';
 import {
   Image,
@@ -38,8 +39,8 @@ const SignupScreen = (props: Props) => {
     navigation.navigate('Login');
   };
   return (
-    <View className="px-5 flex-1 bg-white pt-5">
-      <Text className="text-4xl font-bold text-start ">
+    <View style={tw`px-5 flex-1 bg-white pt-5`}>
+      <Text style={tw`text-4xl font-bold text-start`}>
         Create an
         {'\n'} account
       </Text>
@@ -83,8 +84,8 @@ const SignupScreen = (props: Props) => {
             otherStyles="mt-5"
           />
 
-          <Text className="text-[#676767] text-lg font-medium self-end">
-            By clicking the <Text className="text-red-600"> Register</Text>{' '}
+          <Text style={tw`text-[#676767] text-lg font-medium self-end`}>
+            By clicking the <Text style={tw`text-red-600`}> Register</Text>{' '}
             button, you agree to the public offer
           </Text>
         </View>
@@ -93,36 +94,36 @@ const SignupScreen = (props: Props) => {
           title="Login"
           handlePress={handleLogin}
           isLoading={isSubmitting}
-          containerStyle="mt-7 py-5"
+          containerStyle={tw`mt-7 py-5`}
         />
         {/* or continue with  */}
-        <View className="mt-5 self-center">
-          <Text className="text-[#575757] text-lg self-center mt-5">
+        <View style={tw`mt-5 self-center`}>
+          <Text style={tw`text-[#575757] text-lg self-center mt-5`}>
             {' '}
             - OR Continue with -{' '}
           </Text>
-          <View className="flex flex-row items-center gap-3 mt-5 justify-between">
+          <View style={tw`flex flex-row items-center gap-3 mt-5 justify-between`}>
             {ContinueWithData.map((item, index) => {
               return (
                 <TouchableOpacity
                   key={item.id}
                   onPress={handleSignInWithProvider}
-                  className="rounded-full border-2 bg-red-50 border-red-500 p-4">
+                  style={tw`rounded-full border-2 bg-red-50 border-red-500 p-4`}>
                   <Image
                     source={item.image}
-                    className="w-8 h-8 "
+                    style={tw`w-8 h-8`}
                     resizeMode="contain"
                   />
                 </TouchableOpacity>
               );
             })}
           </View>
-          <View className="flex flex-row  items-center gap-x-2 justify-center mt-8">
-            <Text className="text-[#575757] text-xl ">
+          <View style={tw`flex flex-row items-center gap-x-2 justify-center mt-8`}>
+            <Text style={tw`text-[#575757] text-xl`}>
               I Already Have an Account
             </Text>
             <TouchableOpacity onPress={handleNavigateToLogin}>
-              <Text className="text-xl font-bold underline text-action ">
+              <Text style={tw`text-xl font-bold underline text-action`}>
                 Login
               </Text>
             </TouchableOpacity>
