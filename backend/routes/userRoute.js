@@ -1,21 +1,22 @@
 const express = require('express');
-
-const {
-    signUp,
-    updateUser,
-    deleteUser
-} = require('../controllers/userController'); // Đảm bảo đường dẫn chính xác đến userController
-const { sign } = require('jsonwebtoken');
-
 const router = express.Router();
+const userController = require('../controllers/userController'); // Đường dẫn tới userController.js
+const verifyToken = require('../middleware/verifyToken'); // Đường dẫn tới verifyToken.js
+app.use(express.json()) 
 
-// Sign up a new user
-router.post('/signup', signUp);
+// Đăng ký người dùng mới
+router.post('/register', userController.registerUser);
 
-// Update a user by ID
-router.put('/:uid', updateUser);
+// Đăng nhập người dùng
+router.post('/login', userController.loginUser);
 
-// Delete a user by ID
-router.delete('/:uid', deleteUser);
+// Lấy thông tin người dùng (cần xác thực)
+router.get('/profile', verifyToken, userController.getUserProfile);
+
+// Cập nhật thông tin người dùng (cần xác thực)
+router.put('/profile', verifyToken, userController.updateUserProfile);
+
+// Xóa người dùng (cần xác thực)
+router.delete('/profile', verifyToken, userController.deleteUserProfile);
 
 module.exports = router;
