@@ -24,7 +24,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       onPress={handlePress}
       activeOpacity={0.7}
       style={[
-        tw`bg-action rounded-xl w-full flex flex-row justify-center items-center`,
+        tw`bg-red-500 rounded-xl w-full flex flex-row justify-center items-center`,
         containerStyle,
         isLoading ? tw`opacity-50` : null
       ]}

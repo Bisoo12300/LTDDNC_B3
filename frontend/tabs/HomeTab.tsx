@@ -119,7 +119,7 @@ const HomeTab = (props: Props) => {
         />
       </View>
       {/* daily .. */}
-      <View style={tw`bg-[#4392F9] rounded-xl justify-between flex flex-row mx-5 pl-5 py-5`}>
+      <View style={tw`bg-blue-500 rounded-xl justify-between flex flex-row mx-5 pl-5 py-5`}>
         <View>
           <Text style={tw`text-white text-2xl font-semibold`}>
             Daily of the Day

@@ -7,6 +7,8 @@ import PlaceOrder from './PlaceOrder';
 import ProfileScreen from './ProfileScreen';
 import SignupScreen from './SignupScreen';
 import ProductsDetailsScreen from './ProductsDetailsScreen';
+import GetStartedScreen from './GetStartedScreen';
+import OTPVerificationScreen from './OTPVerificationScreen';
 export {
   CheckoutScreen,
   ForgotPasswordScreen,
@@ -16,5 +18,7 @@ export {
   PlaceOrder,
   ProfileScreen,
   SignupScreen,
-  ProductsDetailsScreen
+  ProductsDetailsScreen,
+  GetStartedScreen,
+  OTPVerificationScreen
 };

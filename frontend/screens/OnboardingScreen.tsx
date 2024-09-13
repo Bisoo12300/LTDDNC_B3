@@ -6,20 +6,20 @@ import { SplashData } from '../constants/data';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { setItem } from '../utils/AsyncStorage';
-import { RouteStackParamList } from '../../App';
+// Define RouteStackParamList within the same file
+export type RouteStackParamList = {
+  GetStarted: { id: number } | undefined;
+};
 import tw from 'tailwind-react-native-classnames'; 
 
 type Props = {};
-export type RootStackParamList = {
-  Login: { id: number } | undefined;
-};
 
 const OnboardingScreen = (props: Props) => {
   const navigation = useNavigation<StackNavigationProp<RouteStackParamList>>();
   
   const handleDone = async () => {
     await setItem('onboarded', 200);
-    navigation.navigate('HomeScreen'); // on press will navigate to HomeScreen
+    navigation.navigate('GetStarted'); // on press will navigate to HomeScreen
   };
 
   return (

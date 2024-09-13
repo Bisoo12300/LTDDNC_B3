@@ -27,12 +27,49 @@ const LoginScreen = (props: Props) => {
   type RootStackParamList = {
     ForgotPassword: undefined;
     Signup: undefined;
-  };
+  OTPVerificationScreen: { email: string };
+};
   const handleForgotPassword = () => {
     navigation.navigate('ForgotPassword');
   };
 
-  const handleLogin = () => {};
+  const handleLogin = async () => {
+    setIsSubmitting(true);
+  
+    // Kiểm tra các trường hợp trống hoặc lỗi
+    if (!form.email || !form.password) {
+      if (!form.email) setEmailError('Email is required');
+      if (!form.password) setPasswordError('Password is required');
+      setIsSubmitting(false);
+      return;
+    }
+  
+    try {
+      // Gửi email OTP tới API
+      const response = await fetch('http://localhost:4000/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: form.email }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        alert('OTP sent to email');
+  
+        // Điều hướng tới màn hình xác thực OTP và truyền email
+        navigation.navigate('OTPVerificationScreen', { email: form.email });
+      } else {
+        alert('Failed to send OTP: ' + data.message);
+      }
+    } catch (error) {
+      alert('Error: ' + error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   const handleSignInWithProvider = () => {};
   const handleNavigateToSignUp = () => {
     navigation.navigate('Signup');
@@ -80,7 +117,7 @@ const LoginScreen = (props: Props) => {
           title="Login"
           handlePress={handleLogin}
           isLoading={isSubmitting}
-          containerStyle="mt-7 py-5"
+          containerStyle={tw`mt-7 py-5`}
         />
         {/* or continue with  */}
         <View style={tw`mt-5 self-center`}>
